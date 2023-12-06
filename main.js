@@ -1,3 +1,4 @@
+// VARIABLES
 const piedra = 1
 const papel = 2
 const tijeras = 3
@@ -8,11 +9,14 @@ let Empates = 0
 
 alert("Binevenidos al Simulador de Papel, Piedra y Tijeras :D");
 
+//NOMBRE DEL JUGADOR 1 Y 2
+
 let jugador1 =Nombres("Por favor Ingrese el Nombre del Jugador Nº 1");
 
 alert("Bienvenido " + jugador1);
 
 let jugador2 = Nombres("Por favor Ingrese el Nombre del Jugado Nº 2").toUpperCase()
+
 if (jugador2 == jugador1) {
     while (true) {
         jugador2 =prompt("Por favor Jugador 2 Cambie de Nombre").toUpperCase()
@@ -21,7 +25,10 @@ if (jugador2 == jugador1) {
         }
     }
 };
+
 alert("Bienvenido " + jugador2);
+
+//RONDAS QUE EL USUARIO DESEA JUGAR PARA GANAR
 
 let cuantasrondas =Number(prompt("Eligan Cuantas rondas Tiene que Ganar un Jugador Para Ganar La Partida"))
 
@@ -35,6 +42,8 @@ if (isNaN(cuantasrondas) || cuantasrondas <=0) {
 };
 
 alert("Listos Empezemos el Juego, Buena suerte a Los Dos Jugadores "+jugador1 +" y " + jugador2);
+
+// BUCLE QUE INICIA EL JUEGO, HASTA QUE EL USUARIO QUIERA TERMINAR
 
 for (let rondas = 1; rondas <=100; rondas++) {
     alert("Ronda Nº " + rondas);
@@ -52,6 +61,8 @@ for (let rondas = 1; rondas <=100; rondas++) {
     }
     let Jugadasjugador2 =empezarJuego("Por favor "+jugador2+" Eliga Entre \n 1. Piedra \n 2. Papel \n 3. Tijeras \n 4. Rendirse");
     
+// JUGADAS POSIBLES Y PUNTOS QUE SE REPARTEN ENTRE LOS JUGADORES
+
     if (Jugadasjugador1 == piedra && Jugadasjugador2 == tijeras || Jugadasjugador2 == tijeras && Jugadasjugador1 == piedra) {
         alert("Felicidade Ganador jugador "+jugador1);
         jugador1rondasganas++
@@ -88,6 +99,7 @@ for (let rondas = 1; rondas <=100; rondas++) {
             rondas = 0
         }
     }
+// SI UNO LE LOS DOS JUGADORES LLEGA A UNA CANTIDAD DE PUENTOS O SI SE RINDE EL OTRO GANAA
     if (jugador1rondasganas == cuantasrondas || jugador2rondasganas==cuantasrondas) {
         if (jugador1rondasganas>jugador2rondasganas){
             alert("Felicidades "+jugador1+" Usted a Ganado La Partida")
@@ -109,6 +121,7 @@ for (let rondas = 1; rondas <=100; rondas++) {
     };
 };
 
+// FUNCTION  DE JUGADAS PERMITIDAS
 
 function empezarJuego(Jugadas) {
     let jugadores =prompt(Jugadas)
@@ -128,6 +141,8 @@ function empezarJuego(Jugadas) {
     }
     return jugadores
 };
+
+// FUNCTION  DE NOMBRE
 
 function Nombres(Erores) {
     let nombre = prompt(Erores).toUpperCase()
